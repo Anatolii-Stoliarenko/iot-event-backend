@@ -45,6 +45,17 @@ iot-event-backend/
 
 ---
 
+## Dodatkowe Narzędzia
+
+Projekt może być wykorzystywany w połączeniu z frontendem dostępnym w repozytorium [iot-event-hub](https://github.com/Anatolii-Stoliarenko/iot-event-hub.git).
+
+**Technologie frontendowe:**
+
+- **Framework:** Angular
+- **Komunikacja z backendem:** REST API
+
+---
+
 ## Instalacja
 
 1. Sklonuj repozytorium:
@@ -66,11 +77,42 @@ composer install
 symfony serve
 ```
 
+Aplikacja będzie dostępna pod adresem http://127.0.0.1:8000
+
 ---
+
+## Narzędzia do Rozwoju
+
+Poniżej znajdziesz narzędzia, które mogą być pomocne w pracy z tym projektem:
+
+- **Postman** - - do testowania żądań API.
+- **Symfony** - CLI - do zarządzania projektem Symfony.
+- **Composer** - - do zarządzania zależnościami PHP.
+- **VS Code** - - polecane IDE z dodatkami do PHP/Symfony.
+- **Git** - - do zarządzania wersjonowaniem kodu.
+- **Docker** - (opcjonalnie) - do szybkiego uruchomienia środowiska projektowego.
 
 ## Użycie
 
 Aplikacja obsługuje żądania REST przez punkt końcowy `/api/event`. Wysyłane dane muszą być zgodne z wymaganym formatem dla każdego zdarzenia. Przykładowe zdarzenia:
+
+---
+
+## Sposób współpracy z frontem
+
+Aby współpracować z frontendem znajdującym się w repozytorium iot-event-hub, należy:
+
+1. Uruchomić backend zgodnie z instrukcją w sekcji Instalacja.
+2. Sklonować i uruchomić projekt frontendowy:
+
+```bash
+git clone https://github.com/Anatolii-Stoliarenko/iot-event-hub.git
+cd iot-event-hub
+npm install
+npm start
+```
+
+3. Upewnić się, że frontend jest skonfigurowany do komunikacji z backendem poprzez endpointy dostępne na http://127.0.0.1:8000.
 
 ---
 
@@ -120,16 +162,6 @@ Aplikacja obsługuje żądania REST przez punkt końcowy `/api/event`. Wysyłane
 3. `doorUnlocked` - Obsługuje odblokowanie drzwi.
 
 Każde zdarzenie przechodzi przez proces walidacji i obsługi, w zależności od jego typu.
-
----
-
-## Testy
-
-Aby uruchomić testy, wykonaj polecenie:
-
-```bash
-php bin/phpunit
-```
 
 ---
 
