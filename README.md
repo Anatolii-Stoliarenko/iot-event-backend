@@ -36,14 +36,12 @@ backend/
 └── README.md
 ```
 
----
-
 ## Wymagania
 
-PHP 8.x lub wyższy
-Composer
-Symfony CLI (opcjonalnie)
-Serwer HTTP, np. Apache lub Nginx
+- **PHP** - 8.x lub wyższy
+- **Composer** -
+- **Symfony** - CLI (opcjonalnie)
+- **Serwer** - HTTP, np. Apache lub Nginx
 
 ---
 
@@ -52,7 +50,7 @@ Serwer HTTP, np. Apache lub Nginx
 1. Sklonuj repozytorium:
 
 ```bash
-git clone <URL-repozytorium>
+git clone https://github.com/Anatolii-Stoliarenko/iot-event-backend.git
 cd backend
 ```
 
@@ -68,13 +66,11 @@ composer install
 symfony serve
 ```
 
-4. Skonfiguruj środowisko (plik .env) zgodnie z Twoimi potrzebami.
-
 ---
 
 ## Użycie
 
-Aplikacja obsługuje żądania REST przez punkt końcowy /api/event. Wysyłane dane muszą być zgodne z wymaganym formatem dla każdego zdarzenia. Przykładowe zdarzenia:
+Aplikacja obsługuje żądania REST przez punkt końcowy `/api/event`. Wysyłane dane muszą być zgodne z wymaganym formatem dla każdego zdarzenia. Przykładowe zdarzenia:
 
 ---
 
