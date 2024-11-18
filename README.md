@@ -9,7 +9,7 @@ To jest backend projektu obsługującego zdarzenia IoT. Aplikacja przetwarza ró
 ## Struktura projektu
 
 ```plaintext
-backend/
+iot-event-backend/
 ├── bin/
 ├── config/
 ├── public/
@@ -51,7 +51,7 @@ backend/
 
 ```bash
 git clone https://github.com/Anatolii-Stoliarenko/iot-event-backend.git
-cd backend
+cd iot-event-backend
 ```
 
 2. Zainstaluj zależności:
@@ -115,9 +115,9 @@ Aplikacja obsługuje żądania REST przez punkt końcowy `/api/event`. Wysyłane
 
 **Dostępne zdarzenia**
 
-1. deviceMalfunction - Obsługuje awarie urządzeń.
-2. temperatureExceeded - Obsługuje przekroczenie temperatury.
-3. doorUnlocked - Obsługuje odblokowanie drzwi.
+1. `deviceMalfunction` - Obsługuje awarie urządzeń.
+2. `temperatureExceeded` - Obsługuje przekroczenie temperatury.
+3. `doorUnlocked` - Obsługuje odblokowanie drzwi.
 
 Każde zdarzenie przechodzi przez proces walidacji i obsługi, w zależności od jego typu.
 
