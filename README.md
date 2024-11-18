@@ -1,14 +1,14 @@
 # IoT Event Backend
 
+**Polska wersja**: Zobacz [README.pl.md](README.pl.md)
+
+## Project Description
+
+This is the backend of a project handling IoT events. The application processes various types of events such as device malfunctions (`deviceMalfunction`), temperature exceedance (`temperatureExceeded`), and door unlocking (`doorUnlocked`). The system is based on Symfony and handles data validation, event logging, and external communication.
+
 ---
 
-## Opis projektu
-
-To jest backend projektu obsługującego zdarzenia IoT. Aplikacja przetwarza różne typy zdarzeń, takie jak awarie urządzeń (`deviceMalfunction`), przekroczenie temperatury (`temperatureExceeded`) oraz odblokowanie drzwi (`doorUnlocked`). System jest oparty na Symfony i obsługuje walidację danych, rejestrowanie zdarzeń i zewnętrzną komunikację.
-
----
-
-## Struktura projektu
+## Project Structure
 
 ```plaintext
 iot-event-backend/
@@ -40,74 +40,71 @@ iot-event-backend/
 
 ---
 
-## Wymagania
+## Requirements
 
 - **PHP** - 8.x lub wyższy
-- **Composer** -
-- **Symfony** - CLI (opcjonalnie)
+- **Composer**
+- **Symfony** - CLI (optional)
 - **Serwer** - HTTP, np. Apache lub Nginx
 
 ---
 
-## Dodatkowe Narzędzia
+## Additional Tools
 
-Projekt może być wykorzystywany w połączeniu z frontendem dostępnym w repozytorium [iot-event-hub](https://github.com/Anatolii-Stoliarenko/iot-event-hub.git).
+The project can be used in conjunction with the frontend available in the repository [iot-event-hub](https://github.com/Anatolii-Stoliarenko/iot-event-hub.git).
 
-**Technologie frontendowe:**
+**Frontend Technologies:**
 
 - **Framework:** Angular
-- **Komunikacja z backendem:** REST API
+- **Backend Communication:** REST API
 
 ---
 
-## Instalacja
+## Installation
 
-1. Sklonuj repozytorium:
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/Anatolii-Stoliarenko/iot-event-backend.git
 cd iot-event-backend
 ```
 
-
-2. Zainstaluj zależności:
+2. Install dependencies:
 
 ```bash
 composer install
 ```
 
-
-3. Uruchom serwer deweloperski Symfony:
+3. Run the Symfony development server:
 
 ```bash
 symfony serve
 ```
 
-
-Aplikacja będzie dostępna pod adresem http://127.0.0.1:8000
-
----
-
-## Narzędzia do Rozwoju
-
-Poniżej znajdziesz narzędzia, które mogą być pomocne w pracy z tym projektem:
-
-- **Postman** - do testowania żądań API.
-- **Symfony CLI** - do zarządzania projektem Symfony.
-- **Composer** - do zarządzania zależnościami PHP.
-- **VS Code** - polecane IDE z dodatkami do PHP/Symfony.
-- **Git** - do zarządzania wersjonowaniem kodu.
-- **Docker (opcjonalnie)** - do szybkiego uruchomienia środowiska projektowego.
+The application will be available at http://127.0.0.1:8000
 
 ---
 
-## Użycie
+## Development Tools
 
-Aplikacja obsługuje żądania REST przez punkt końcowy `/api/event`. Wysyłane dane muszą być zgodne z wymaganym formatem dla każdego zdarzenia. Przykładowe zdarzenia:
+Below you will find tools that may be helpful when working with this project:
+
+- **Postman** - for testing API requests.
+- **Symfony CLI** - for managing the Symfony project.
+- **Composer** - for managing PHP dependencies.
+- **VS Code** - recommended IDE with extensions for PHP/Symfony.
+- **Git** - for version control management.
+- **Docker (optional)** - for quickly setting up the project environment.
 
 ---
 
-## Przykładowy Request
+## Usage
+
+The application handles REST requests through the `/api/event` endpoint. The data sent must conform to the required format for each event. Example events:
+
+---
+
+## Example Request
 
 **POST** `/api/event`
 
@@ -123,7 +120,7 @@ Aplikacja obsługuje żądania REST przez punkt końcowy `/api/event`. Wysyłane
 
 ---
 
-## Przykładowa Odpowiedź
+## Example Response
 
 ```json
 {
@@ -144,12 +141,12 @@ Aplikacja obsługuje żądania REST przez punkt końcowy `/api/event`. Wysyłane
 
 ---
 
-## Sposób współpracy z frontem
+## How to Integrate with the Frontend
 
-Aby współpracować z frontendem znajdującym się w repozytorium iot-event-hub, należy:
+To integrate with the frontend available in the iot-event-hub repository, you should:
 
-1. Uruchomić backend zgodnie z instrukcją w sekcji Instalacja.
-2. Sklonować i uruchomić projekt frontendowy:
+1. Run the backend according to the instructions in the Installation section.
+2. Clone and start the frontend project:
 
 ```bash
 git clone https://github.com/Anatolii-Stoliarenko/iot-event-hub.git
@@ -158,32 +155,31 @@ npm install
 npm start
 ```
 
-
-3. Upewnić się, że frontend jest skonfigurowany do komunikacji z backendem poprzez endpointy dostępne na http://127.0.0.1:8000.
-
----
-
-## Dokumentacja
-
-**Dostępne zdarzenia**
-
-1. `deviceMalfunction` - Obsługuje awarie urządzeń.
-2. `temperatureExceeded` - Obsługuje przekroczenie temperatury.
-3. `doorUnlocked` - Obsługuje odblokowanie drzwi.
-
-Każde zdarzenie przechodzi przez proces walidacji i obsługi, w zależności od jego typu.
+3. Ensure that the frontend is configured to communicate with the backend through endpoints available at http://127.0.0.1:8000.
 
 ---
 
-## Licencja
+## Documentation
 
-Plik LICENSE zawiera informacje dotyczące licencji projektu.
+**Available Events**
+
+1. `deviceMalfunction` - Handles device malfunctions.
+2. `temperatureExceeded` - Handles temperature exceedance.
+3. `doorUnlocked` - Handles door unlocking.
+
+Each event undergoes validation and processing based on its type.
 
 ---
 
-## Kontakt
+## License
 
-Jeśli masz jakiekolwiek pytania dotyczące projektu lub jego konfiguracji, skontaktuj się poprzez:
+The LICENSE file contains information regarding the project's license.
+
+---
+
+## Contact
+
+If you have any questions about the project or its setup, contact via:
 
 1. **Email**: [anatolii.stoliarenko@gmail.com](mailto:anatolii.stoliarenko@gmail.com)
 2. **Strona**: [https://anatolii-stoliarenko.webflow.io/](https://anatolii-stoliarenko.webflow.io/)
