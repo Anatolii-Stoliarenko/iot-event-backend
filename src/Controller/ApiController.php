@@ -2,19 +2,36 @@
 
 namespace App\Controller;
 
-use App\Service\EventValidationService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+use App\Validators\EventValidationService;
+use App\Services\Handlers\{
+    DeviceMalfunctionHandler,
+    TemperatureExceededHandler,
+    DoorUnlockedHandler
+};
+
+
 class ApiController extends AbstractController
 {
     private EventValidationService $validationService;
+    private DeviceMalfunctionHandler $deviceMalfunctionHandler;
+    private TemperatureExceededHandler $temperatureExceededHandler;
+    private DoorUnlockedHandler $doorUnlockedHandler;
 
-    public function __construct(EventValidationService $validationService)
-    {
+    public function __construct(
+        EventValidationService $validationService,
+        DeviceMalfunctionHandler $deviceMalfunctionHandler,
+        TemperatureExceededHandler $temperatureExceededHandler,
+        DoorUnlockedHandler $doorUnlockedHandler
+    ) {
         $this->validationService = $validationService;
+        $this->deviceMalfunctionHandler = $deviceMalfunctionHandler;
+        $this->temperatureExceededHandler = $temperatureExceededHandler;
+        $this->doorUnlockedHandler = $doorUnlockedHandler;
     }
 
     #[Route('/api/event', name: 'api_event', methods: ['POST'])]
@@ -22,7 +39,7 @@ class ApiController extends AbstractController
     {
         $data = json_decode($request->getContent(), true);
 
-        // Walidacja podstawowa
+        // Walidacja deviceId & eventDate
         $violations = $this->validationService->validateBaseData($data);
 
         if (count($violations) > 0) {
@@ -37,7 +54,7 @@ class ApiController extends AbstractController
             ], JsonResponse::HTTP_BAD_REQUEST);
         }
 
-        // Walidacja specyficzna
+        // Walidacja reasonCode, reasonText, temp, treshold, unlockDate
         $specificViolations = $this->validationService->validateSpecificData($data);
 
         if (count($specificViolations) > 0) {
@@ -52,10 +69,28 @@ class ApiController extends AbstractController
             ], JsonResponse::HTTP_BAD_REQUEST);
         }
 
-        // Jeśli wszystko jest poprawne
-        return $this->json([
-            'message' => 'Request received and validated!',
-            'receivedData' => $data
-        ]);
+        // Obsługa zdarzeń na podstawie eventType
+        $response = [];
+        switch ($data['eventType']) {
+            case 'deviceMalfunction':
+                $response = $this->deviceMalfunctionHandler->handle($data);
+                break;
+        
+            case 'temperatureExceeded':
+                $response = $this->temperatureExceededHandler->handle($data);
+                break;
+        
+            case 'doorUnlocked':
+                $response = $this->doorUnlockedHandler->handle($data);
+                break;
+        }
+
+        // Odpowiedź
+            return $this->json([
+                'message' => 'Request received and processed!',
+                'receivedData' => $data,
+                'details' => $response,
+                
+            ]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service;
+namespace App\Validators;
 
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -22,12 +22,10 @@ class EventValidationService
             'eventType' => new Assert\Choice(['choices' => ['deviceMalfunction', 'temperatureExceeded', 'doorUnlocked']]),
             'deviceId' => [
                 new Assert\NotBlank(),
-                new Assert\NotNull(),
                 new Assert\Type(['type' => 'string'])
             ],
             'eventDate' => [
                 new Assert\NotBlank(),
-                new Assert\NotNull(),
                 new Assert\Type(['type' => 'integer'])
             ],
             // Opcjonalne pola, które zostaną walidowane w zależności od eventType
@@ -55,12 +53,10 @@ class EventValidationService
                     'fields' => [
                         'reasonCode' => [
                             new Assert\NotBlank(),
-                            new Assert\NotNull(),
                             new Assert\Type(['type' => 'integer'])
                         ],
                         'reasonText' => [
                             new Assert\NotBlank(),
-                            new Assert\NotNull(),
                             new Assert\Type(['type' => 'string'])
                         ]
                     ],
@@ -73,7 +69,6 @@ class EventValidationService
                         'fields' => [
                             'temp' => [
                                 new Assert\NotBlank(),
-                                new Assert\NotNull(),
                                 new Assert\Callback(function ($value, $context) {
                                     if (!is_numeric($value)) {
                                         $context->buildViolation('This value should be a valid float.')
@@ -83,7 +78,6 @@ class EventValidationService
                             ],
                             'treshold' => [
                                 new Assert\NotBlank(),
-                                new Assert\NotNull(),
                                 new Assert\Callback(function ($value, $context) {
                                     if (!is_numeric($value)) {
                                         $context->buildViolation('This value should be a valid float.')
@@ -101,7 +95,6 @@ class EventValidationService
                     'fields' => [
                         'unlockDate' => [
                             new Assert\NotBlank(),
-                            new Assert\NotNull(),
                             new Assert\Type(['type' => 'integer'])
                         ]
                     ],
