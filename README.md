@@ -1,5 +1,7 @@
 # IoT Event Backend
 
+---
+
 ## Opis projektu
 
 To jest backend projektu obsługującego zdarzenia IoT. Aplikacja przetwarza różne typy zdarzeń, takie jak awarie urządzeń (`deviceMalfunction`), przekroczenie temperatury (`temperatureExceeded`) oraz odblokowanie drzwi (`doorUnlocked`). System jest oparty na Symfony i obsługuje walidację danych, rejestrowanie zdarzeń i zewnętrzną komunikację.
@@ -36,6 +38,8 @@ iot-event-backend/
 └── README.md
 ```
 
+---
+
 ## Wymagania
 
 - **PHP** - 8.x lub wyższy
@@ -65,17 +69,20 @@ git clone https://github.com/Anatolii-Stoliarenko/iot-event-backend.git
 cd iot-event-backend
 ```
 
+
 2. Zainstaluj zależności:
 
 ```bash
 composer install
 ```
 
+
 3. Uruchom serwer deweloperski Symfony:
 
 ```bash
 symfony serve
 ```
+
 
 Aplikacja będzie dostępna pod adresem http://127.0.0.1:8000
 
@@ -85,34 +92,18 @@ Aplikacja będzie dostępna pod adresem http://127.0.0.1:8000
 
 Poniżej znajdziesz narzędzia, które mogą być pomocne w pracy z tym projektem:
 
-- **Postman** - - do testowania żądań API.
-- **Symfony** - CLI - do zarządzania projektem Symfony.
-- **Composer** - - do zarządzania zależnościami PHP.
-- **VS Code** - - polecane IDE z dodatkami do PHP/Symfony.
-- **Git** - - do zarządzania wersjonowaniem kodu.
-- **Docker** - (opcjonalnie) - do szybkiego uruchomienia środowiska projektowego.
+- **Postman** - do testowania żądań API.
+- **Symfony CLI** - do zarządzania projektem Symfony.
+- **Composer** - do zarządzania zależnościami PHP.
+- **VS Code** - polecane IDE z dodatkami do PHP/Symfony.
+- **Git** - do zarządzania wersjonowaniem kodu.
+- **Docker (opcjonalnie)** - do szybkiego uruchomienia środowiska projektowego.
+
+---
 
 ## Użycie
 
 Aplikacja obsługuje żądania REST przez punkt końcowy `/api/event`. Wysyłane dane muszą być zgodne z wymaganym formatem dla każdego zdarzenia. Przykładowe zdarzenia:
-
----
-
-## Sposób współpracy z frontem
-
-Aby współpracować z frontendem znajdującym się w repozytorium iot-event-hub, należy:
-
-1. Uruchomić backend zgodnie z instrukcją w sekcji Instalacja.
-2. Sklonować i uruchomić projekt frontendowy:
-
-```bash
-git clone https://github.com/Anatolii-Stoliarenko/iot-event-hub.git
-cd iot-event-hub
-npm install
-npm start
-```
-
-3. Upewnić się, że frontend jest skonfigurowany do komunikacji z backendem poprzez endpointy dostępne na http://127.0.0.1:8000.
 
 ---
 
@@ -153,6 +144,25 @@ npm start
 
 ---
 
+## Sposób współpracy z frontem
+
+Aby współpracować z frontendem znajdującym się w repozytorium iot-event-hub, należy:
+
+1. Uruchomić backend zgodnie z instrukcją w sekcji Instalacja.
+2. Sklonować i uruchomić projekt frontendowy:
+
+```bash
+git clone https://github.com/Anatolii-Stoliarenko/iot-event-hub.git
+cd iot-event-hub
+npm install
+npm start
+```
+
+
+3. Upewnić się, że frontend jest skonfigurowany do komunikacji z backendem poprzez endpointy dostępne na http://127.0.0.1:8000.
+
+---
+
 ## Dokumentacja
 
 **Dostępne zdarzenia**
@@ -165,7 +175,15 @@ Każde zdarzenie przechodzi przez proces walidacji i obsługi, w zależności od
 
 ---
 
-## Kontakty
+## Licencja
+
+Plik LICENSE zawiera informacje dotyczące licencji projektu.
+
+---
+
+## Kontakt
+
+Jeśli masz jakiekolwiek pytania dotyczące projektu lub jego konfiguracji, skontaktuj się poprzez:
 
 1. **Email**: [anatolii.stoliarenko@gmail.com](mailto:anatolii.stoliarenko@gmail.com)
 2. **Strona**: [https://anatolii-stoliarenko.webflow.io/](https://anatolii-stoliarenko.webflow.io/)
