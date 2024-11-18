@@ -42,10 +42,10 @@ iot-event-backend/
 
 ## Requirements
 
-- **PHP** - 8.x lub wyższy
+- **PHP** - 8.x or higher
 - **Composer**
 - **Symfony** - CLI (optional)
-- **Serwer** - HTTP, np. Apache lub Nginx
+- **Serwer** - HTTP, np. Apache or Nginx
 
 ---
 
@@ -182,4 +182,4 @@ The LICENSE file contains information regarding the project's license.
 If you have any questions about the project or its setup, contact via:
 
 1. **Email**: [anatolii.stoliarenko@gmail.com](mailto:anatolii.stoliarenko@gmail.com)
-2. **Strona**: [https://anatolii-stoliarenko.webflow.io/](https://anatolii-stoliarenko.webflow.io/)
+2. **Website**: [https://anatolii-stoliarenko.webflow.io/](https://anatolii-stoliarenko.webflow.io/)
