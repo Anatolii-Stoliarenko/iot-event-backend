@@ -8,7 +8,8 @@ nelmio_cors:
     max_age: 3600
   paths:
     "^/api/": # Zezwól na połączenia z endpointami zaczynającymi się od /api/
-      allow_origin: ["http://localhost:4200"]
+      allow_origin:
+        ["http://localhost:4200", "https://iot-event-hub.vercel.app"]
       allow_headers: ["Content-Type", "Authorization"]
       allow_methods: ["GET", "OPTIONS", "POST", "PUT", "DELETE"]
       max_age: 3600
