@@ -1,13 +1,13 @@
 nelmio_cors:
   defaults:
     allow_credentials: false
-    allow_origin: ["http://localhost:4200"] # Domena frontendu Angular
+    allow_origin: ["http://localhost:4200", "https://iot-event-hub.vercel.app"]
     allow_headers: ["Content-Type", "Authorization"]
     expose_headers: []
     allow_methods: ["GET", "OPTIONS", "POST", "PUT", "DELETE"]
     max_age: 3600
   paths:
-    "^/api/": # Zezwól na połączenia z endpointami zaczynającymi się od /api/
+    "^/api/":
       allow_origin:
         ["http://localhost:4200", "https://iot-event-hub.vercel.app"]
       allow_headers: ["Content-Type", "Authorization"]
